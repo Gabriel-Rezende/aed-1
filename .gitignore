@@ -3,10 +3,6 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-src/main/resources/templates
-src/main/resources/static
-src/main/java/br/edu/ifgoiano/trindade/programacaoweb/projeto/web
-src/main/java/br/edu/ifgoiano/trindade/programacaoweb/projeto/rest
 sql moodle web.txt
 
 ### STS ###
