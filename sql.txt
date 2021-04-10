@@ -24,7 +24,7 @@ create table cliente(
 
 );
 
-create table fita(
+create table servicocliente(
     id serial primary key,
     id_cliente integer not null,
     id_empresa integer not null,
