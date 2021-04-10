@@ -1,0 +1,34 @@
+create table empresa(
+    id serial primary key,
+    nome varchar (20),
+    email varchar (30),
+    descricao varchar (50),
+    ramo varchar (30)
+);
+
+create table servico(
+    id serial primary key,
+    id_empresa integer not null,
+    descricao varchar(50),
+    nome varchar (30),
+    preco real,
+    constraint fk_servico_empresa foreign key (id_empresa) references empresa(id)
+
+);
+
+create table cliente(
+    id serial primary key,
+    nome varchar(20),
+    telefone varchar(11),
+    email varchar(50)
+
+);
+
+create table fita(
+    id serial primary key,
+    id_cliente integer not null,
+    id_empresa integer not null,
+    constraint fk_fita_cliente foreign key (id_cliente) references cliente(id),
+    constraint fk_fita_empresa foreign key (id_empresa) references empresa(id)
+
+)
