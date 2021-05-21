@@ -33,6 +33,12 @@ public class Empresa extends Domain{
 	
 	@Column(name = "ramo")
 	private String ramo;
+	
+	@Column(name = "conta")
+	private String conta;
+	
+	@Column(name = "agencia")
+	private String agencia;
 
 	public Integer getId() {
 		return id;
@@ -66,6 +72,22 @@ public class Empresa extends Domain{
 		this.descricao = descricao;
 	}
 
+	public String getAgencia() {
+		return agencia;
+	}
+
+	public void setAgencia(String agencia) {
+		this.agencia = agencia;
+	}
+	
+	public String getConta() {
+		return conta;
+	}
+
+	public void setConta(String conta) {
+		this.conta = conta;
+	}
+	
 	public String getRamo() {
 		return ramo;
 	}

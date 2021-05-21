@@ -3,7 +3,9 @@ create table empresa(
     nome varchar (20),
     email varchar (30),
     descricao varchar (50),
-    ramo varchar (30)
+    ramo varchar (30),
+    conta varchar(30),
+    agencia varchar(30)
 );
 
 create table servico(
