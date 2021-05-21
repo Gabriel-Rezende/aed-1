@@ -5,7 +5,8 @@ create table empresa(
     descricao varchar (50),
     ramo varchar (30),
     conta varchar(30),
-    agencia varchar(30)
+    agencia varchar(30),
+    banco varchar(30)
 );
 
 create table servico(

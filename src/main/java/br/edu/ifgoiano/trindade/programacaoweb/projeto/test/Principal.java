@@ -46,6 +46,7 @@ public class Principal implements CommandLineRunner {
 			String telefone = "";
 			String agencia = "";
 			String conta = "";
+			String banco = "";
 
 			Scanner sc = new Scanner(System.in);
 
@@ -69,13 +70,15 @@ public class Principal implements CommandLineRunner {
 					descricao = sc.nextLine();
 					System.out.println("Ramo:");
 					ramo = sc.nextLine();
+					System.out.println("Banco:");
+					banco = sc.nextLine();
 					System.out.println("Agência:");
 					agencia = sc.nextLine();
 					System.out.println("Conta:");
 					conta = sc.nextLine();
 					// Cadastra só se respeitar o tamanho do varchar no banco
 					if (nome.length() <= 20 && email.length() <= 30 && descricao.length() <= 50
-							&& ramo.length() <= 30 && agencia.length() <= 30 && conta.length() <=30) {
+							&& ramo.length() <= 30 && agencia.length() <= 30 && conta.length() <=30 && banco.length() <= 30) {
 						Empresa empresa = new Empresa();
 						empresa.setNome(nome);
 						empresa.setEmail(email);
@@ -83,7 +86,8 @@ public class Principal implements CommandLineRunner {
 						empresa.setRamo(ramo);
 						empresa.setConta(conta);
 						empresa.setAgencia(agencia);
-
+						empresa.setBanco(banco);
+							
 						empresa = empresaRep.save(empresa);
 
 						sc.reset();

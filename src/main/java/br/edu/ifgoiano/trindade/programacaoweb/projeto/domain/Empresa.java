@@ -39,6 +39,9 @@ public class Empresa extends Domain{
 	
 	@Column(name = "agencia")
 	private String agencia;
+	
+	@Column(name = "banco")
+	private String banco;
 
 	public Integer getId() {
 		return id;
@@ -94,6 +97,14 @@ public class Empresa extends Domain{
 
 	public void setRamo(String ramo) {
 		this.ramo = ramo;
+	}
+	
+	public String getBanco() {
+		return banco;
+	}
+
+	public void setBanco(String banco) {
+		this.banco = banco;
 	}
 	
 }
