@@ -14,7 +14,7 @@ create table servico(
     id_empresa integer not null,
     descricao varchar(50),
     nome varchar (30),
-    preco real,
+    preco numeric(4, 2),
     constraint fk_servico_empresa foreign key (id_empresa) references empresa(id)
 
 );
