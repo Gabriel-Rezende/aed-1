@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Layout - Mazer Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+
+    <link rel="stylesheet" th:href="@{/vendors/perfect-scrollbar/perfect-scrollbar.css}">
+    <link rel="stylesheet" th:href="@{/vendors/bootstrap-icons/bootstrap-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="shortcut icon" th:href="@{/images/favicon.svg}" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+      <div id="sidebar" class="active">
+          <div class="sidebar-wrapper active">
+              <div class="sidebar-header">
+                  <div class="d-flex justify-content-between">
+                      <div class="logo">
+                          <a href="index.html"><img th:src="@{/images/logo/logo.png}" alt="Logo" srcset=""></a>
+                      </div>
+                      <div class="toggler">
+                          <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                      </div>
+                  </div>
+              </div>
+              <div class="sidebar-menu">
+                  <ul class="menu">
+                      <li class="sidebar-item">
+                          <a href="index.html" class='sidebar-link'>
+                              <i class="bi bi-person"></i>
+                              <span>Login</span>
+                          </a>
+                      </li>
+
+                      <li class="sidebar-item">
+                          <a href="#" class='sidebar-link'>
+                              <i class="bi bi-cash"></i>
+                              <span>Empresas</span>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+              <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+          </div>
+      </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Registrar Empresa</h3>
+                            <p class="text-subtitle text-muted"> Preencha os dados abaixo sobre a empresa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- // Basic multiple Column Form section start -->
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form" th:action="@{/empresas}" th:object="${objeto}" method="post">
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                  <div class="form-group has-icon-left">
+                                                      <label for="first-name-icon">Nome</label>
+                                                      <div class="position-relative">
+                                                          <input type="text" class="form-control"
+                                                              th:field="*{nome}" maxlength="50"
+                                                              placeholder="Nome da Empresa"
+                                                              id="first-name-icon">
+                                                          <div class="form-control-icon">
+                                                              <i class="bi bi-building"></i>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                  <div class="form-group has-icon-left">
+                                                      <label for="first-name-icon">Email</label>
+                                                      <div class="position-relative">
+                                                          <input type="text" class="form-control"
+                                                              placeholder="Email"
+                                                              th:field="*{email}" maxlength="40"
+                                                              id="first-name-icon">
+                                                          <div class="form-control-icon">
+                                                              <i class="bi bi-envelope"></i>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-12 col-12">
+                                                  <div class="form-group">
+                                                      <label for="first-name-icon">Descrição</label>
+                                                      <div class="position-relative">
+                                                          <input type="text" class="form-control"
+                                                              th:field="*{descricao}" maxlength="100"
+                                                              placeholder="Descrição da Empresa"
+                                                              id="first-name-icon">
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                  <div class="form-group">
+                                                      <label for="first-name-icon">Ramo</label>
+                                                      <div class="position-relative">
+                                                          <input type="text" class="form-control"
+                                                              placeholder="Ramo de Atuação"
+                                                              th:field="*{ramo}" maxlength="30"
+                                                              id="first-name-icon">
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-2 col-12">
+                                                  <div class="form-group">
+                                                      <label for="first-name-icon">Banco</label>
+                                                      <div class="position-relative">
+                                                        <select class="form-select" th:field="*{banco}" id="basicSelect">
+                                                          <option value="001">Banco do Brasil</option>
+                                                          <option value="003">Banco da Amazônia</option>
+                                                          <option value="004">Banco do Nordeste</option>
+                                                          <option value="021">Banestes</option>
+                                                          <option value="025">Banco Alfa</option>
+                                                          <option value="027">Besc</option>
+                                                          <option value="029">Banerj</option>
+                                                          <option value="031">Banco Beg</option>
+                                                          <option value="033">Banco Santander Banespa</option>
+                                                          <option value="036">Banco Bem</option>
+                                                          <option value="037">Banpará</option>
+                                                          <option value="038">Banestado</option>
+                                                          <option value="039">BEP</option>
+                                                          <option value="040">Banco Cargill</option>
+                                                          <option value="041">Banrisul</option>
+                                                          <option value="044">BVA</option>
+                                                          <option value="045">Banco Opportunity</option>
+                                                          <option value="047">Banese</option>
+                                                          <option value="062">Hipercard</option>
+                                                          <option value="063">Ibibank</option>
+                                                          <option value="065">Lemon Bank</option>
+                                                          <option value="066">Banco Morgan Stanley Dean Witter</option>
+                                                          <option value="069">BPN Brasil</option>
+                                                          <option value="070">Banco de Brasília – BRB</option>
+                                                          <option value="072">Banco Rural</option>
+                                                          <option value="073">Banco Popular</option>
+                                                          <option value="074">Banco J. Safra</option>
+                                                          <option value="075">Banco CR2</option>
+                                                          <option value="076">Banco KDB</option>
+                                                          <option value="096">Banco BMF</option>
+                                                          <option value="104">Caixa Econômica Federal</option>
+                                                          <option value="107">Banco BBM</option>
+                                                          <option value="116">Banco Único</option>
+                                                          <option value="151">Nossa Caixa</option>
+                                                          <option value="175">Banco Finasa</option>
+                                                          <option value="184">Banco Itaú BBA</option>
+                                                          <option value="204">American Express Bank</option>
+                                                          <option value="208">Banco Pactual</option>
+                                                          <option value="212">Banco Matone</option>
+                                                          <option value="213">Banco Arbi</option>
+                                                          <option value="214">Banco Dibens</option>
+                                                          <option value="217">Banco Joh Deere</option>
+                                                          <option value="218">Banco Bonsucesso</option>
+                                                          <option value="222">Banco Calyon Brasil</option>
+                                                          <option value="224">Banco Fibra</option>
+                                                          <option value="225">Banco Brascan</option>
+                                                          <option value="229">Banco Cruzeiro</option>
+                                                          <option value="230">Unicard</option>
+                                                          <option value="233">Banco GE Capital</option>
+                                                          <option value="237">Bradesco</option>
+                                                          <option value="241">Banco Clássico</option>
+                                                          <option value="243">Banco Stock Máxima</option>
+                                                          <option value="246">Banco ABC Brasil</option>
+                                                          <option value="248">Banco Boavista Interatlântico</option>
+                                                          <option value="249">Investcred Unibanco</option>
+                                                          <option value="250">Banco Schahin</option>
+                                                          <option value="252">Fininvest</option>
+                                                          <option value="254">Paraná Banco</option>
+                                                          <option value="263">Banco Cacique</option>
+                                                          <option value="265">Banco Fator</option>
+                                                          <option value="266">Banco Cédula</option>
+                                                          <option value="300">Banco de la Nación Argentina</option>
+                                                          <option value="318">Banco BMG</option>
+                                                          <option value="320">Banco Industrial e Comercial</option>
+                                                          <option value="356">ABN Amro Real</option>
+                                                          <option value="341">Itau</option>
+                                                          <option value="347">Sudameris</option>
+                                                          <option value="351">Banco Santander</option>
+                                                          <option value="353">Banco Santander Brasil</option>
+                                                          <option value="366">Banco Societe Generale Brasil</option>
+                                                          <option value="370">Banco WestLB</option>
+                                                          <option value="376">JP Morgan</option>
+                                                          <option value="389">Banco Mercantil do Brasil</option>
+                                                          <option value="394">Banco Mercantil de Crédito</option>
+                                                          <option value="399">HSBC</option>
+                                                          <option value="409">Unibanco</option>
+                                                          <option value="412">Banco Capital</option>
+                                                          <option value="422">Banco Safra</option>
+                                                          <option value="453">Banco Rural</option>
+                                                          <option value="456">Banco Tokyo Mitsubishi UFJ</option>
+                                                          <option value="464">Banco Sumitomo Mitsui Brasileiro</option>
+                                                          <option value="477">Citibank</option>
+                                                          <option value="479">Itaubank (antigo Bank Boston)</option>
+                                                          <option value="487">Deutsche Bank</option>
+                                                          <option value="488">Banco Morgan Guaranty</option>
+                                                          <option value="492">Banco NMB Postbank</option>
+                                                          <option value="494">Banco la República Oriental del Uruguay</option>
+                                                          <option value="495">Banco La Provincia de Buenos Aires</option>
+                                                          <option value="505">Banco Credit Suisse</option>
+                                                          <option value="600">Banco Luso Brasileiro</option>
+                                                          <option value="604">Banco Industrial</option>
+                                                          <option value="610">Banco VR</option>
+                                                          <option value="611">Banco Paulista</option>
+                                                          <option value="612">Banco Guanabara</option>
+                                                          <option value="613">Banco Pecunia</option>
+                                                          <option value="623">Banco Panamericano</option>
+                                                          <option value="626">Banco Ficsa</option>
+                                                          <option value="630">Banco Intercap</option>
+                                                          <option value="633">Banco Rendimento</option>
+                                                          <option value="634">Banco Triângulo</option>
+                                                          <option value="637">Banco Sofisa</option>
+                                                          <option value="638">Banco Prosper</option>
+                                                          <option value="643">Banco Pine</option>
+                                                          <option value="652">Itaú Holding Financeira</option>
+                                                          <option value="653">Banco Indusval</option>
+                                                          <option value="654">Banco A.J. Renner</option>
+                                                          <option value="655">Banco Votorantim</option>
+                                                          <option value="707">Banco Daycoval</option>
+                                                          <option value="719">Banif</option>
+                                                          <option value="721">Banco Credibel</option>
+                                                          <option value="734">Banco Gerdau</option>
+                                                          <option value="735">Banco Pottencial</option>
+                                                          <option value="738">Banco Morada</option>
+                                                          <option value="739">Banco Galvão de Negócios</option>
+                                                          <option value="740">Banco Barclays</option>
+                                                          <option value="741">BRP</option>
+                                                          <option value="743">Banco Semear</option>
+                                                          <option value="745">Banco Citibank</option>
+                                                          <option value="746">Banco Modal</option>
+                                                          <option value="747">Banco Rabobank International</option>
+                                                          <option value="748">Banco Cooperativo Sicredi</option>
+                                                          <option value="749">Banco Simples</option>
+                                                          <option value="751">Dresdner Bank</option>
+                                                          <option value="752">BNP Paribas</option>
+                                                          <option value="753">Banco Comercial Uruguai</option>
+                                                          <option value="755">Banco Merrill Lynch</option>
+                                                          <option value="756">Banco Cooperativo do Brasil</option>
+                                                          <option value="757">KEB</option>
+                                                        </select>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-2 col-12">
+                                                  <div class="form-group">
+                                                      <label for="first-name-icon">Conta</label>
+                                                      <div class="position-relative">
+                                                          <input type="text" class="form-control"
+                                                              placeholder="Conta"
+                                                              th:field="*{conta}" maxlength="30"
+                                                              id="first-name-icon">
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-2 col-12">
+                                                  <div class="form-group">
+                                                      <label for="first-name-icon">Agência</label>
+                                                      <div class="position-relative">
+                                                          <input type="text" class="form-control"
+                                                              placeholder="Agência"
+                                                              th:field="*{agencia}" maxlength="30"
+                                                              id="first-name-icon">
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-12 mt-2 d-flex justify-content-end">
+                                                    <button type="submit"
+                                                        class="btn btn-primary me-1 mb-1">Registrar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- // Basic multiple Column Form section end -->
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; GG Enterprises</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script th:src="@{/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+    <script th:src="@{js/bootstrap.bundle.min.js}"></script>
+
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>
