@@ -22,26 +22,31 @@ public class Empresa extends Domain{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable = false, length = 50)
 	private String nome;
 	
-	@Column(name = "email")
+	@Column(name = "email", unique = true, nullable = false, length = 50)
 	private String email;
 	
-	@Column(name = "descricao")
+	@Column(name = "descricao", nullable = false, length = 100)
 	private String descricao;
 	
-	@Column(name = "ramo")
+	@Column(name = "ramo", nullable = false, length = 30)
 	private String ramo;
 	
-	@Column(name = "conta")
+	@Column(name = "conta", nullable = false, length = 30)
 	private String conta;
 	
-	@Column(name = "agencia")
+	
+	@Column(name = "agencia", nullable = false, length = 30)
 	private String agencia;
 	
-	@Column(name = "banco")
+	@Column(name = "banco", nullable = false, length = 50)
 	private String banco;
+	
+	@Column(name = "senha", nullable = false, length = 64)
+	private String senha;
+
 
 	public Integer getId() {
 		return id;
@@ -105,6 +110,14 @@ public class Empresa extends Domain{
 
 	public void setBanco(String banco) {
 		this.banco = banco;
+	}
+	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 }

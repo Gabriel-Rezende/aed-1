@@ -1,22 +1,14 @@
 
 package br.edu.ifgoiano.trindade.programacaoweb.projeto.domain;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
@@ -31,13 +23,13 @@ public class Cliente extends Domain{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable = false, length = 50)
 	private String nome;
 	
-	@Column(name = "email")
+	@Column(name = "email",  unique = true, nullable = false, length = 50)
 	private String email;
 	
-	@Column(name = "telefone")
+	@Column(name = "telefone", nullable = false, length = 30)
 	private String telefone;
 
 	public Integer getId() {

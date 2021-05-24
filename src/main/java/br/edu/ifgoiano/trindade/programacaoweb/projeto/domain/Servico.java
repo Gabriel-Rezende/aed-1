@@ -1,8 +1,5 @@
 package br.edu.ifgoiano.trindade.programacaoweb.projeto.domain;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,11 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
@@ -30,13 +25,13 @@ public class Servico extends Domain {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "descricao")
+	@Column(name = "descricao", nullable = false, length = 100)
 	private String descricao;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable = false, length = 50)
 	private String nome;
 	
-	@Column(name="preco")
+	@Column(name = "preco", nullable = false)
 	private Double preco;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
