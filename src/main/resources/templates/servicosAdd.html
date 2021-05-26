@@ -62,7 +62,7 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Registrar Cliente</h3>
+                            <h3>Cadastrar Serviço</h3>
                             <p class="text-subtitle text-muted"> Preencha os dados abaixo</p>
                         </div>
                     </div>
@@ -80,7 +80,12 @@
                                               <div class="col-md-6 col-12">
                                                 <div class="form-group">
                                                     <label for="first-name-icon">Empresa</label>
-                                                    
+
+                                                    <select class="form-select" th:field="*{empresa}" id="Order" name="Order">
+                                                        <option th:each="e : ${empresas}"
+                                                                th:value="${e.id}"
+                                                                th:text="${e.nome}"></option>
+                                                    </select>
                                                 </div>
                                               </div>
                                                 <div class="col-md-6 col-12">
