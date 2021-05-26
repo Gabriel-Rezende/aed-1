@@ -21,37 +21,61 @@
 
 <body>
     <div id="app">
-        <div id="sidebar" class="active">
-            <div class="sidebar-wrapper active">
-                <div class="sidebar-header">
-                    <div class="d-flex justify-content-between">
-                        <div class="logo">
-                            <a href="index.html"><img th:src="@{/images/logo/logo.png}" alt="Logo" srcset=""></a>
-                        </div>
-                        <div class="toggler">
-                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="sidebar-menu">
-                    <ul class="menu">
-                        <li class="sidebar-item  ">
-                            <a href="index.html" class='sidebar-link'>
-                                <i class="bi bi-person"></i>
-                                <span>Login</span>
-                            </a>
-                        </li>
+      <div id="sidebar" class="active">
+          <div class="sidebar-wrapper active">
+              <div class="sidebar-header">
+                  <div class="d-flex justify-content-between">
+                      <div class="logo">
+                          <a href="index.html"><img th:src="@{/images/logo/logo.png}" alt="Logo" srcset=""></a>
+                      </div>
+                      <div class="toggler">
+                          <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                      </div>
+                  </div>
+              </div>
+              <div class="sidebar-menu">
+                  <ul class="menu">
+                    <li class="sidebar-item active has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person"></i>
+                            <span>Clientes</span>
+                        </a>
+                        <ul class="submenu active">
+                            <li class="submenu-item">
+                                <a th:href="@{/clientes/add}">Cadastrar Cliente</a>
+                            </li>
+                            <li class="submenu-item active">
+                                  <a>Listar Clientes</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                        <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-cash"></i>
-                                <span>Clientes</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
-            </div>
+                      <li class="sidebar-item  has-sub">
+                          <a href="#" class='sidebar-link'>
+                              <i class="bi bi-cash"></i>
+                              <span>Empresas</span>
+                          </a>
+                          <ul class="submenu ">
+                              <li class="submenu-item ">
+                                  <a th:href="@{/empresas/add}">Cadastrar Empresa</a>
+                              </li>
+                              <li class="submenu-item ">
+                                    <a th:href="@{/empresas}">Listar Empresas</a>
+                              </li>
+                          </ul>
+                      </li>
+
+                      <li class="sidebar-item">
+                          <a th:href="@{/servicos/add}" class='sidebar-link'>
+                              <i class="bi bi-bag"></i>
+                              <span>Cadastrar Serviço</span>
+                          </a>
+                      </li>
+                      </li>
+                  </ul>
+              </div>
+              <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+          </div>
         </div>
         <div id="main">
             <header class="mb-3">
@@ -64,7 +88,7 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Empresas</h3>
+                            <h3>Clientes</h3>
                             <p class="text-subtitle text-muted">Clientes cadastrados.</p>
                         </div>
                     </div>

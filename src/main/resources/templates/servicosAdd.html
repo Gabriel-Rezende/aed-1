@@ -33,24 +33,48 @@
               </div>
               <div class="sidebar-menu">
                   <ul class="menu">
-                      <li class="sidebar-item">
-                          <a href="index.html" class='sidebar-link'>
-                              <i class="bi bi-person"></i>
-                              <span>Login</span>
-                          </a>
-                      </li>
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person"></i>
+                            <span>Clientes</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a th:href="@{/clientes/add}">Cadastrar Cliente</a>
+                            </li>
+                            <li class="submenu-item ">
+                                  <a th:href="@{/clientes}">Listar Clientes</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                      <li class="sidebar-item">
+                      <li class="sidebar-item  has-sub">
                           <a href="#" class='sidebar-link'>
                               <i class="bi bi-cash"></i>
                               <span>Empresas</span>
                           </a>
+                          <ul class="submenu ">
+                              <li class="submenu-item ">
+                                  <a th:href="@{/empresas/add}">Cadastrar Empresa</a>
+                              </li>
+                              <li class="submenu-item ">
+                                    <a th:href="@{/empresas}">Listar Empresas</a>
+                              </li>
+                          </ul>
+                      </li>
+
+                      <li class="sidebar-item active">
+                          <a class='sidebar-link'>
+                              <i class="bi bi-bag"></i>
+                              <span>Cadastrar Serviço</span>
+                          </a>
+                      </li>
                       </li>
                   </ul>
               </div>
               <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
           </div>
-      </div>
+        </div>
         <div id="main">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">

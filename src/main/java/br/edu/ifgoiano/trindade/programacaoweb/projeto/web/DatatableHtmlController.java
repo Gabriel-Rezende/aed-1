@@ -1,5 +1,6 @@
 package br.edu.ifgoiano.trindade.programacaoweb.projeto.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,19 +35,25 @@ public class DatatableHtmlController extends HtmlController<Servico, Integer> {
 
 		return mv;
 	}
-	
+
 	@RequestMapping("/add")
 	@Override
 	public ModelAndView add(Servico obj) {
 		ModelAndView mv = new ModelAndView("/" + getNome() + "Add");
 		mv.addObject("objeto", obj);
-		
+
 		Empresa empresa = new Empresa();
 		mv.addObject("e", empresa);
-		
+
 		List<Empresa> empresas = empresaRepository.findAll();
+		this.sort(empresas);
+		
 		mv.addObject("empresas", empresas);
 		return mv;
+	}
+
+	public void sort(List<Empresa> list) {
+		list.sort((o1, o2) -> o1.getNome().compareTo(o2.getNome()));
 	}
 
 	@Override
