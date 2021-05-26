@@ -104,6 +104,8 @@
                                         <th scope="col">Descrição</th>
                                         <th scope="col">Nome</th>
                                         <th scope="col">Preço</th>
+                                        <th scope="col">Excluir</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -115,6 +117,11 @@
                                         <td th:text="${servico.descricao}"></td>
                                         <td th:text="${servico.nome}"></td>
                                         <td th:text="${#numbers.formatDecimal(servico.preco, 0, 'COMMA', 2, 'POINT')}"></td>
+                                        <td>
+                                            <a th:href="@{/servicos/delete/{id}(id=${servico.id})}" class="btn btn-info rounded-pill">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
