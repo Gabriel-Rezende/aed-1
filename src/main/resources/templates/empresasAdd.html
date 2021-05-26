@@ -37,15 +37,31 @@
                       <li class="sidebar-item">
                           <a href="index.html" class='sidebar-link'>
                               <i class="bi bi-person"></i>
-                              <span>Login</span>
+                              <span>Cadastrar Cliente</span>
                           </a>
                       </li>
 
-                      <li class="sidebar-item">
+                      <li class="sidebar-item  has-sub">
                           <a href="#" class='sidebar-link'>
                               <i class="bi bi-cash"></i>
                               <span>Empresas</span>
                           </a>
+                          <ul class="submenu ">
+                              <li class="submenu-item ">
+                                  <a>Cadastrar Empresa</a>
+                              </li>
+                              <li class="submenu-item ">
+                                    <a th:href="@{/empresas}">Listar Empresas</a>
+                              </li>
+                          </ul>
+                      </li>
+
+                      <li class="sidebar-item">
+                          <a href="index.html" class='sidebar-link'>
+                              <i class="bi bi-bag"></i>
+                              <span>Cadastrar Serviço</span>
+                          </a>
+                      </li>
                       </li>
                   </ul>
               </div>
