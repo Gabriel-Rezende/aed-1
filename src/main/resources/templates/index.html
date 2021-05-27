@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GG Enterprises - Serviços Contratados</title>
+    <title>GG Enterprises</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -22,10 +22,10 @@
 <body>
     <div id="app">
       <div id="sidebar" class="active">
-          <div class="sidebar-wrapper active">
+          <div class="sidebar-wrapper">
               <div class="sidebar-header">
                   <div class="d-flex justify-content-between">
-                      <div class="logo">
+                      <div class="img-responsive">
                           <a th:href="@{/}"><img th:src="@{/images/logo/logo.png}" alt="Logo" srcset=""></a>
                       </div>
                       <div class="toggler">
@@ -45,7 +45,7 @@
                                 <a th:href="@{/clientes/add}">Cadastrar Cliente</a>
                             </li>
                             <li class="submenu-item">
-                                  <a>Listar Clientes</a>
+                                  <a th:href="@{/clientes}">Listar Clientes</a>
                             </li>
                         </ul>
                     </li>
@@ -93,33 +93,23 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Clientes e Serviços Relacionados</h3>
-                            <p class="text-subtitle text-muted">Listagem dos relacionamentos:</p>
+                            <h3>GG Enterprises</h3>
+                            <p class="text-subtitle text-muted">Boas vindas ao nosso projeto.</p>
                         </div>
                     </div>
                 </div>
-                <section class="section">
-                    <div class="card">
-                        <div class="card-body">
-                            <table class="table table-striped" id="table1">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Cliente</th>
-                                        <th scope="col">Serviço</th>
-                                        <th scope="col">Assinatura</th>
-                                        <th scope="col">Vencimento</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
 
-                                    <tr th:each="servicoContratado : ${objetos}">
-                                        <td th:text="${servicoContratado.cliente.nome}"></td>
-                                        <td th:text="${servicoContratado.servico.nome}"></td>
-                                        <td th:text="${servicoContratado.dataVencimento}"></td>
-                                        <td th:text="${servicoContratado.dataAssinatura}"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <!-- // Basic multiple Column Form section start -->
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                  <div class="card-body text-center mt-5 mb-5">
+                                      <img class="img-responsive mt-5 mb-5" th:src="@{/images/logo/logo.png}">
+                                  </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

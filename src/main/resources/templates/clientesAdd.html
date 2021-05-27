@@ -24,7 +24,7 @@
               <div class="sidebar-header">
                   <div class="d-flex justify-content-between">
                       <div class="logo">
-                          <a href="index.html"><img th:src="@{/images/logo/logo.png}" alt="Logo" srcset=""></a>
+                          <a th:href="@{/}"><img th:src="@{/images/logo/logo.png}" alt="Logo" srcset=""></a>
                       </div>
                       <div class="toggler">
                           <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -124,7 +124,7 @@
                                                   <div class="form-group has-icon-left">
                                                       <label for="first-name-icon">Email</label>
                                                       <div class="position-relative">
-                                                          <input type="text" class="form-control"
+                                                          <input type="email" class="form-control"
                                                               placeholder="Email"
                                                               maxlength="50" th:field="*{email}"
                                                               id="first-name-icon">
@@ -141,7 +141,7 @@
                                                           <input type="text" class="form-control"
                                                               placeholder="Telefone"
                                                               maxlength="30" th:field="*{telefone}"
-                                                              id="first-name-icon">
+                                                              id="telefone">
                                                           <div class="form-control-icon">
                                                               <i class="bi bi-phone"></i>
                                                           </div>
@@ -175,8 +175,19 @@
 
     <script th:src="@{/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
     <script th:src="@{js/bootstrap.bundle.min.js}"></script>
-
     <script th:src="@{/js/main.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.62/jquery.inputmask.bundle.js"></script>
+    <script type="text/javascript">
+          $(window).load(function()
+          {
+           var phones = [{ "mask": "(##) #####-####"}, { "mask": "(##) #####-####"}];
+            $('#telefone').inputmask({
+                mask: phones,
+                greedy: false,
+                definitions: { '#': { validator: "[0-9]", cardinality: 1}} });
+          });
+    </script>
 </body>
 
 </html>

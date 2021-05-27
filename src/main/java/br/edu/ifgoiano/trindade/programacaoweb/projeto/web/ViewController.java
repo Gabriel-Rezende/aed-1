@@ -1,19 +1,14 @@
 package br.edu.ifgoiano.trindade.programacaoweb.projeto.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import br.edu.ifgoiano.trindade.programacaoweb.projeto.domain.EmpresaRepository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ViewController {
 
-	@Autowired
-    private EmpresaRepository empresaRep;
-     
-    @GetMapping("")
-    public String viewHomePage() {
-        return "index";
-    }
+	@RequestMapping("/")
+	public String index(Model model) {
+		return "index";
+	}
 }

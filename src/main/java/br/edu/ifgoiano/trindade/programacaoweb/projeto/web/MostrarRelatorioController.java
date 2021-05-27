@@ -63,13 +63,19 @@ public class MostrarRelatorioController extends HtmlController<Servico, Integer>
 			}
 		}
 		
+		List<Servico> servicosAux = servicoRepository.findAll();
+		for(Servico s: servicosAux) {
+			if(s.getEmpresa().getId() == id) {
+				qtdServicos++;
+			}
+		}
+		
 		DecimalFormat df = new DecimalFormat("#.00");
 	    String angleFormated = df.format(arrecadacaoTotal);
 	    
 	    DecimalFormat fd = new DecimalFormat("#.00");
 	    String aux = fd.format(arrecadacaoMensal);
-		
-		qtdServicos = set.size();
+	    
 		mv.addObject("arrecadacaoTotal", angleFormated);
 		mv.addObject("qtdServicos", qtdServicos);
 		mv.addObject("qtdClientes", qtdClientes);
