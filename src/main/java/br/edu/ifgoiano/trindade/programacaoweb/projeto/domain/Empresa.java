@@ -1,14 +1,12 @@
 package br.edu.ifgoiano.trindade.programacaoweb.projeto.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import java.util.List;
 
 @Entity
 @Table(name = "empresa")
@@ -46,6 +44,10 @@ public class Empresa extends Domain{
 	
 	@Column(name = "senha", nullable = false, length = 64)
 	private String senha;
+
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+	@JsonIgnore
+	private List<Servico> servicos;
 
 
 	public Integer getId() {
