@@ -1,6 +1,5 @@
 package br.edu.ifgoiano.trindade.programacaoweb.projeto.web;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.ifgoiano.trindade.programacaoweb.projeto.domain.Cliente;
 import br.edu.ifgoiano.trindade.programacaoweb.projeto.domain.ClienteRepository;
-import br.edu.ifgoiano.trindade.programacaoweb.projeto.domain.EmpresaRepository;
 import br.edu.ifgoiano.trindade.programacaoweb.projeto.domain.Servico;
 import br.edu.ifgoiano.trindade.programacaoweb.projeto.domain.ServicoCliente;
 import br.edu.ifgoiano.trindade.programacaoweb.projeto.domain.ServicoRepository;

@@ -32,7 +32,7 @@ public abstract class HtmlController<T extends Object, ID extends Object> {
 	public ModelAndView inserir(@Valid T obj) {
 		getRepository().save(obj);
 		ModelAndView mv = new ModelAndView("/" + getNome());
-		mv.addObject("objetos", getRepository().findAll(Sort.by(Sort.Direction.ASC, "nome")));
+		mv.addObject("objetos", getRepository().findAll(Sort.by(Sort.Direction.ASC, "id")));
 		return mv;
 	}
 
