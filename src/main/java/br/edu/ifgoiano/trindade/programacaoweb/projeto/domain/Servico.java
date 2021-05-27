@@ -15,25 +15,22 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "servico")
-@JsonIdentityInfo(
-		scope = Servico.class,
-		generator = ObjectIdGenerators.PropertyGenerator.class, 
-		property = "id")
+@JsonIdentityInfo(scope = Servico.class, generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Servico extends Domain {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(name = "descricao", nullable = false, length = 100)
 	private String descricao;
-	
+
 	@Column(name = "nome", nullable = false, length = 50)
 	private String nome;
-	
+
 	@Column(name = "preco", nullable = false)
 	private Double preco;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_empresa")
 	private Empresa empresa;
@@ -53,7 +50,7 @@ public class Servico extends Domain {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}

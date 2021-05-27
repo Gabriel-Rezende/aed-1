@@ -33,13 +33,13 @@
               </div>
               <div class="sidebar-menu">
                   <ul class="menu">
-                      <li class="sidebar-item active has-sub">
+                      <li class="sidebar-item has-sub">
                           <a href="#" class='sidebar-link'>
                               <i class="bi bi-person"></i>
                               <span>Clientes</span>
                           </a>
-                          <ul class="submenu active">
-                              <li class="submenu-item active">
+                          <ul class="submenu">
+                              <li class="submenu-item">
                                   <a>Cadastrar Cliente</a>
                               </li>
                               <li class="submenu-item ">
@@ -104,46 +104,51 @@
                             <div class="card">
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <form class="form" th:action="@{/clientes}" th:object="${objeto}" method="post">
+                                        <form class="form" th:action="@{/servicos-contratados}" th:object="${objeto}" method="post">
                                             <div class="row">
-                                                <div class="col-md-4 col-12">
+                                                <div class="col-md-3 col-12">
+                                                  <div class="form-group">
+                                                      <label for="first-name-icon">Cliente</label>
+
+                                                      <select class="form-select" th:field="*{cliente}" id="Order" name="Order">
+                                                          <option th:each="c : ${clientes}"
+                                                                  th:value="${c.id}"
+                                                                  th:text="${c.nome}"></option>
+                                                      </select>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-3 col-12">
+                                                  <div class="form-group">
+                                                      <label for="first-name-icon">Serviço</label>
+
+                                                      <select class="form-select" th:field="*{servico}" id="Order" name="Order">
+                                                          <option th:each="s : ${servicos}"
+                                                                  th:value="${s.id}"
+                                                                  th:text="${s.nome}"></option>
+                                                      </select>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-3 col-12">
                                                   <div class="form-group has-icon-left">
-                                                      <label for="first-name-icon">Nome</label>
+                                                      <label for="first-name-icon">Data Assinatura</label>
                                                       <div class="position-relative">
                                                           <input type="text" class="form-control"
-                                                              th:field="*{nome}"  maxlength="50"
-                                                              placeholder="Nome"
-                                                              id="first-name-icon">
+                                                              placeholder="Data de Assinatura"
+                                                              maxlength="50" th:field="*{dataAssinatura}"
+                                                              id="id_01" readonly>
                                                           <div class="form-control-icon">
-                                                              <i class="bi bi-person"></i>
+                                                              <i class="bi bi-calendar-date"></i>
                                                           </div>
                                                       </div>
                                                   </div>
                                                 </div>
-                                                <div class="col-md-4 col-12">
+                                                <div class="col-md-3 col-12">
                                                   <div class="form-group has-icon-left">
-                                                      <label for="first-name-icon">Email</label>
+                                                      <label for="first-name-icon">Data Vencimento</label>
                                                       <div class="position-relative">
-                                                          <input type="text" class="form-control"
-                                                              placeholder="Email"
-                                                              maxlength="50" th:field="*{email}"
-                                                              id="first-name-icon">
+                                                          <input th:field="*{dataVencimento}" class="form-control" placeholder="Dia de Vencimento" id="id_02" readonly/>
                                                           <div class="form-control-icon">
-                                                              <i class="bi bi-envelope"></i>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                                </div>
-                                                <div class="col-md-4 col-12">
-                                                  <div class="form-group has-icon-left">
-                                                      <label for="first-name-icon">Telefone</label>
-                                                      <div class="position-relative">
-                                                          <input type="text" class="form-control"
-                                                              placeholder="Telefone"
-                                                              maxlength="30" th:field="*{telefone}"
-                                                              id="first-name-icon">
-                                                          <div class="form-control-icon">
-                                                              <i class="bi bi-phone"></i>
+                                                              <i class="bi bi-calendar-date"></i>
                                                           </div>
                                                       </div>
                                                   </div>
@@ -173,6 +178,30 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+      var myCurrentDate=new Date();
+      myCurrentDate.setDate(myCurrentDate.getDate()+ 30);
+      var data = myCurrentDate,
+      dia  = data.getDate().toString(),
+      diaF = (dia.length == 1) ? '0'+dia : dia,
+      mes  = (data.getMonth()).toString(), //+1 pois no getMonth Janeiro começa com zero.
+      mesF = (mes.length == 1) ? '0'+mes : mes,
+      anoF = data.getFullYear();
+
+      document.getElementById('id_01').value = anoF+"-"+mesF+"-"+diaF;
+
+
+      myCurrentDate=new Date();
+      var myFutureDate=new Date(myCurrentDate);
+      myFutureDate.setDate(myFutureDate.getDate()+ 30);
+      var data = myFutureDate,
+        dia  = data.getDate().toString(),
+        diaF = (dia.length == 1) ? '0'+dia : dia,
+        mes  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+        mesF = (mes.length == 1) ? '0'+mes : mes,
+        anoF = data.getFullYear();
+        document.getElementById('id_02').value = anoF+"-"+mesF+"-"+diaF;
+    </script>
     <script th:src="@{/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
     <script th:src="@{js/bootstrap.bundle.min.js}"></script>
 

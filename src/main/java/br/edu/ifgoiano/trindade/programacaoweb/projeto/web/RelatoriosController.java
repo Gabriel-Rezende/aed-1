@@ -9,15 +9,15 @@ import br.edu.ifgoiano.trindade.programacaoweb.projeto.domain.Empresa;
 import br.edu.ifgoiano.trindade.programacaoweb.projeto.domain.EmpresaRepository;
 
 @Controller
-@RequestMapping(path = "/login-empresa")
-public class LoginEmpresaController extends HtmlController<Empresa, Integer> {
+@RequestMapping(path = "/relatorios")
+public class RelatoriosController extends HtmlController<Empresa, Integer> {
 
 	@Autowired
 	private EmpresaRepository empresaRepository;
 
 	    @Override
 	    public String getNome() {
-	        return "login-empresa";
+	        return "relatorios";
 	    }
 
 	    @Override

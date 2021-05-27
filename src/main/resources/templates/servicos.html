@@ -71,6 +71,11 @@
                               <span>Cadastrar Serviço</span>
                           </a>
                       </li>
+                      <li class="sidebar-item">
+                          <a th:href="@{/relatorios}" class='sidebar-link'>
+                            <i class="bi bi-card-list"></i>
+                            <span>Feedback</span>
+                          </a>
                       </li>
                   </ul>
               </div>
@@ -104,6 +109,7 @@
                                         <th scope="col">Descrição</th>
                                         <th scope="col">Nome</th>
                                         <th scope="col">Preço</th>
+                                        <th scope="col">Contratar</th>
                                         <th scope="col">Excluir</th>
 
                                     </tr>
@@ -118,7 +124,12 @@
                                         <td th:text="${servico.nome}"></td>
                                         <td th:text="${#numbers.formatDecimal(servico.preco, 0, 'COMMA', 2, 'POINT')}"></td>
                                         <td>
-                                            <a th:href="@{/servicos/delete/{id}(id=${servico.id})}" class="btn btn-info rounded-pill">
+                                            <a th:href="@{/contratar-servico/{id}(id=${servico.id})}" class="btn btn-success rounded-pill">
+                                                <i class="bi bi-person-plus"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a th:href="@{/servicos/delete/{id}(id=${servico.id})}" class="btn btn-danger rounded-pill">
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                         </td>

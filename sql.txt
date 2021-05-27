@@ -30,8 +30,10 @@ create table cliente(
 create table servicocliente(
     id serial primary key,
     id_cliente integer not null,
-    id_empresa integer not null,
+    id_servico integer not null,
+    data_assinatura varchar(10) not null,
+    data_vencimento varchar(10) not null, 
     constraint fk_fita_cliente foreign key (id_cliente) references cliente(id),
-    constraint fk_fita_empresa foreign key (id_empresa) references empresa(id)
+    constraint fk_fita_servico foreign key (id_servico) references servico(id)
 
 )

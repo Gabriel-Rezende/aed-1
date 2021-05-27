@@ -8,4 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ServicoRepository extends JpaRepository<Servico, Integer> {
 	
 	List<Servico> findByEmpresa(Optional<Empresa> optional);
+
+	List<Servico> findByEmpresa(Empresa empresa);
 }
