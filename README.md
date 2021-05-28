@@ -1,2 +1,2 @@
 # Algoritmos e Estrutura de Dados 1
-Projeto de AED-1
+Para executar o projeto é recomendado ter instalado a IDE Eclipse com a ferramenta Maven bem configurada. Outra IDE recomendada é a IntelliJ IDEA, mas basicamente é necessário ter a ferramenta de compilação Maven. Para rodar o projeto basta executar a classe ProjetoApplication. 
